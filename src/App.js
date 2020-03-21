@@ -1,26 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Table from './components/Table';
+import Pie from './components/Pie';
+import Scatter from './components/Scatter';
+import NavBar from './components/NavBar';
+import { data as loadedData } from './data';
 
-function App() {
+const App = () => {
+  const data = React.useMemo(() => loadedData, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <CssBaseline />
+      <Router>
+        <div className='App'>
+          <NavBar />
+          <Switch>
+            <Route path='/pie'>
+              <Pie data={data} />
+            </Route>
+            <Route path='/scatter'>
+              <Scatter data={data} />
+            </Route>
+            <Route path='/'>
+              <Table data={data} />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    </>
   );
-}
+};
 
 export default App;

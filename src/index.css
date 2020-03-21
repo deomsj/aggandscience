@@ -1,4 +1,8 @@
+* {
+  box-sizing: border-box;
+}
 body {
+  padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -7,7 +11,161 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+p {
+  text-align: center;
+}
+
+.App {
+  min-height: 100vh;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.MuiBottomNavigation-root.nav-bar {
+  background-color: transparent;
+}
+
+.multiple-inputs-container {
+  display: flex;
+}
+
+.MuiAutocomplete-root {
+  flex-grow: 1;
+  margin: 0 20px;
+}
+
+.chart__container {
+  margin: 10px auto;
+  width: 90%;
+  max-width: 700px;
+}
+
+.global-search-input {
+  flex-grow: 1;
+  max-width: 300px;
+}
+
+.resizer {
+  display: inline-block;
+  width: 10px;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateX(50%);
+  z-index: 1;
+  touch-action: none;
+}
+
+.resizer.isResizing {
+  background: lightgray;
+}
+
+.table {
+  display: inline-block;
+  border-spacing: 0;
+  border: 1px solid black;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.tr:last-child .td {
+  border-bottom: 0;
+}
+
+.th,
+.td {
+  margin: 0;
+  padding: 0.5rem;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  overflow: hidden;
+}
+.th:last-child,
+.td:last-child {
+  border-right: 0;
+}
+
+.th {
+  flex-direction: column;
+}
+
+.column-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.number-range {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.number-range__input {
+  width: 60px;
+  text-align: center;
+}
+
+.th__hide-column {
+  color: gray;
+  padding: 3px;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}
+
+.th:hover > .MuiTableSortLabel-root {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.drawer {
+  width: 250px;
+}
+
+.global-search-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 250px;
+  max-width: 500px;
+  margin: 0 20px 0 auto;
+  overflow-x: auto;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.pagination__text {
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
+}
+
+.go-to-page.go-to-page {
+  margin: 0 5px;
+  width: 40px;
+}
+
+.go-to-page.go-to-page input {
+  text-align: center;
+}
+
+/* Hide browser default arrows on number input fields */
+/*  -- Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/*  -- Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
 }
